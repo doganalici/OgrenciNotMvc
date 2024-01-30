@@ -1,4 +1,4 @@
-﻿
+﻿@model OgrenciNotMvc.Models.EntityFramework.TBLOGRENCILER
 @{
     ViewBag.Title = "YeniOgrenci";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,21 +29,42 @@
 
     <div style="margin-top:15px;">
         <label>Öğrenci Kulübü</label>
-        <input type="text" class="form-control" name="OGRKULUP" />
+        @Html.DropDownListFor(m => m.TBLKULUPLER.KULUPID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
     </div>
 
-    <div style="margin-top:15px;">
-        <label>Şehir Seçimi</label>
-        @Html.DropDownList("Şehirler",
-       new[]
-       {
-           new SelectListItem(){Value="1",Text="Ankara"},
-           new SelectListItem(){Value="2",Text="Bursa"},
-           new SelectListItem(){Value="3",Text="İstanbul"},
-           new SelectListItem(){Value="4",Text="İzmir"}
 
-       }, "Şehir Seçiniz...", new { @class = "form-control" })
-    </div>
+    @*<div style="margin-top:15px;">
+            <label>Şehir Seçimi</label>
+            @Html.DropDownList("Şehirler",
+           new[]
+           {
+               new SelectListItem(){Value="1",Text="Ankara"},
+               new SelectListItem(){Value="2",Text="Bursa"},
+               new SelectListItem(){Value="3",Text="İstanbul"},
+               new SelectListItem(){Value="4",Text="İzmir"}
+
+           }, "Şehir Seçiniz...", new { @class = "form-control" })
+        </div>
+
+            ----------------------------------------------------------------
+
+        <div style="margin-top:15px;">
+
+            <label>Film Seçin</label>
+            <select id="MovieType" name="MovieType">
+                <option value="0">Aksiyon</option>
+                <option value="1">Dram</option>
+                <option value="2">Romantik Komedi</option>
+                <option value="3">Bilim Kurgu</option>
+                <option value="4">Animasyon</option>
+            </select>
+        </div>
+
+            ----------------------------------------------------------------
+
+        <div style="margin-top:15px;">
+         @Html.DropDownList("DersAd",null,"Ders Seçin", new {@class="form-control"})
+        </div>*@
 
     <div>
         <button class="btn btn-warning" style="margin-top:15px">Öğrenci Ekle</button>
