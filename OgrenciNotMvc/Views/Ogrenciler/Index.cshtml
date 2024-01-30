@@ -15,6 +15,7 @@
         <th>SOYADI</th>
         <th>CİNSİYET</th>
         <th>KULÜP</th>
+        <th>İŞLEMLER</th>
     </tr>
     <tbody>
         @foreach (var ogr in Model)
@@ -25,6 +26,10 @@
                 <td>@ogr.OGRSOYAD</td>
                 <td>@ogr.OGRCINSIYET</td>
                 <td>@ogr.OGRKULUP</td>
+                <td>
+                    <a href="Ogrenciler/Sil/@ogr.OGRENCIID" class="btn btn-danger">Sil</a>
+                    <a href="Default/Guncelle/@ogr.OGRENCIID" class="btn btn-success">Güncelle</a>
+                </td>
             </tr>
 
         }

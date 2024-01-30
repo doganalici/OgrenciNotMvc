@@ -12,6 +12,7 @@
     <tr>
         <th>KULÜP ID</th>
         <th>KULÜP ADI</th>
+        <th>İŞLEMLER</th>
     </tr>
     <tbody>
         @foreach (var klp in Model)
@@ -19,6 +20,11 @@
             <tr>
                 <td>@klp.KULUPID</td>
                 <td>@klp.KULUPAD</td>
+                <td>
+                    <a href="/Kulupler/Sil/@klp.KULUPID" class="btn btn-danger">Sil</a>
+                    <a href="/Kulupler/Guncelle/@klp.KULUPID" class="btn btn-success">Güncelle</a>
+                </td>
+
             </tr>
 
         }
