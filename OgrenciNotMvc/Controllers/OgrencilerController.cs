@@ -39,6 +39,32 @@ namespace OgrenciNotMvc.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Sil(int id)
+        {
+            var ogrenci = db.TBLOGRENCILER.Find(id);
+            db.TBLOGRENCILER.Remove(ogrenci);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult OgrenciGetir(int id)
+        {
+            var ogrenci = db.TBLOGRENCILER.Find(id);
+            return View("OgrenciGetir",ogrenci);
+        }
+
+        public ActionResult Guncelle(TBLOGRENCILER p)
+        {
+            var ogr = db.TBLOGRENCILER.Find(p.OGRENCIID);
+            ogr.OGRAD = p.OGRAD;
+            ogr.OGRSOYAD = p.OGRSOYAD;
+            ogr.OGRFOTOGRAF = p.OGRFOTOGRAF;
+            ogr.OGRCINSIYET = p.OGRCINSIYET;
+            ogr.OGRKULUP = p.OGRKULUP;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Ogrenciler");
+        }
     }
 }
 
