@@ -11,11 +11,13 @@
 <table class="table table-bordered">
     <tr>
         <th>NOT ID</th>
-        <th>ÖĞRENCİ</th>
-        <th>DERS</th>
+        <th>ÖĞRENCİ ID</th>
+        <th>ÖĞRENCİ ADI SOYADI</th>
+        <th>DERS ADI</th>
         <th>SINAV 1</th>
         <th>SINAV 2</th>
         <th>SINAV 3</th>
+        <th>PROJE</th>
         <th>ORTALAMA</th>
         <th>DURUM</th>
         <th>GÜNCELLE</th>
@@ -27,10 +29,12 @@
             <tr>
                 <td>@not.NOTID</td>
                 <td>@not.OGRID</td>
-                <td>@not.DERSID</td>
+                <td>@not.TBLOGRENCILER.OGRAD  @not.TBLOGRENCILER.OGRSOYAD</td>
+                <td>@not.TBLDERSLER.DERSAD</td>
                 <td>@not.SINAV1</td>
                 <td>@not.SINAV2</td>
                 <td>@not.SINAV3</td>
+                <td>@not.PROJE</td>
                 <td>@not.ORTALAMA</td>
                 <td>@not.DURUM</td>
                 <td><a href="/Sinavlar/NotGetir/@not.NOTID" class="btn btn-success">Güncelle</a></td>

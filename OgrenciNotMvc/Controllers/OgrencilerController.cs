@@ -20,12 +20,12 @@ namespace OgrenciNotMvc.Controllers
         [HttpGet]
         public ActionResult YeniOgrenci()
         {
-            List<SelectListItem> degerler=(from i in db.TBLKULUPLER.ToList()
-                                           select new SelectListItem
-                                           {
-                                               Text=i.KULUPAD,
-                                               Value=i.KULUPID.ToString()
-                                           }).ToList();
+            List<SelectListItem> degerler = (from i in db.TBLKULUPLER.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.KULUPAD,
+                                                 Value = i.KULUPID.ToString()
+                                             }).ToList();
             ViewBag.dgr = degerler;
             return View();
         }
@@ -33,7 +33,7 @@ namespace OgrenciNotMvc.Controllers
 
         public ActionResult YeniOgrenci(TBLOGRENCILER p3)
         {
-            var klp=db.TBLKULUPLER.Where(m=>m.KULUPID==p3.TBLKULUPLER.KULUPID).FirstOrDefault();
+            var klp = db.TBLKULUPLER.Where(m => m.KULUPID == p3.TBLKULUPLER.KULUPID).FirstOrDefault();
             p3.TBLKULUPLER = klp;
             db.TBLOGRENCILER.Add(p3);
             db.SaveChanges();
@@ -51,7 +51,15 @@ namespace OgrenciNotMvc.Controllers
         public ActionResult OgrenciGetir(int id)
         {
             var ogrenci = db.TBLOGRENCILER.Find(id);
-            return View("OgrenciGetir",ogrenci);
+
+            List<SelectListItem> degerler = (from i in db.TBLKULUPLER.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.KULUPAD,
+                                                 Value = i.KULUPID.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
+            return View("OgrenciGetir", ogrenci);
         }
 
         public ActionResult Guncelle(TBLOGRENCILER p)
